@@ -31,14 +31,14 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass-nav py-2 shadow-xs' : 'bg-transparent py-4'
+        scrolled ? 'glass-nav py-2.5 shadow-xs' : 'bg-transparent py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
-          {/* Main Header Brand Logo: Significantly Enlarged */}
+          {/* Main Header Brand Logo: Properly sized to prevent text wrapping */}
           <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <div className="relative w-64 sm:w-80 md:w-[380px] h-20 sm:h-24 transition-transform duration-200 group-hover:scale-102">
+            <div className="relative w-52 sm:w-64 md:w-72 h-14 sm:h-16 transition-transform duration-200 group-hover:scale-102">
               <Image
                 src="/brand/committee-logo.png"
                 alt="شعار لجنة عمداء شؤون الطلاب للجامعات السعودية"
@@ -49,13 +49,13 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* Desktop Navigation Links (Forced single line via whitespace-nowrap) */}
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-bold text-[#2D3E36] hover:text-[#1F5A46] transition-colors"
+                className="text-sm font-bold text-[#2D3E36] hover:text-[#1F5A46] transition-colors whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -63,11 +63,11 @@ export default function Header() {
           </nav>
 
           {/* Right Action Items */}
-          <div className="hidden lg:flex items-center gap-4 shrink-0">
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             <LanguageSwitcher />
             <Link
               href="/register"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#1F5A46] text-white text-sm font-bold hover:bg-[#174535] transition-all shadow-md active:scale-98"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#1F5A46] text-white text-sm font-bold hover:bg-[#174535] transition-all shadow-md active:scale-98 whitespace-nowrap"
             >
               <span>{t('nav.registerCta')}</span>
               {isRtl ? <ArrowLeft className="w-4 h-4 text-[#C9A96A]" /> : <ArrowRight className="w-4 h-4 text-[#C9A96A]" />}
@@ -97,7 +97,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg text-base font-bold text-[#2D3E36] hover:bg-[#F8F7F4] hover:text-[#1F5A46]"
+                className="px-3 py-2 rounded-lg text-base font-bold text-[#2D3E36] hover:bg-[#F8F7F4] hover:text-[#1F5A46] whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -108,7 +108,7 @@ export default function Header() {
             <Link
               href="/register"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-[#1F5A46] text-white font-bold text-center shadow-md"
+              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-[#1F5A46] text-white font-bold text-center shadow-md whitespace-nowrap"
             >
               <span>{t('nav.registerCta')}</span>
               {isRtl ? <ArrowLeft className="w-4 h-4 text-[#C9A96A]" /> : <ArrowRight className="w-4 h-4 text-[#C9A96A]" />}
@@ -116,7 +116,7 @@ export default function Header() {
             <Link
               href="/admin/login"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 text-xs text-[#62776D] hover:text-[#1F5A46] py-1"
+              className="flex items-center justify-center gap-2 text-xs text-[#62776D] hover:text-[#1F5A46] py-1 whitespace-nowrap"
             >
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>{t('nav.adminDashboard')}</span>
