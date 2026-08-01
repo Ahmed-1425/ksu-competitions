@@ -4,7 +4,7 @@ import { I18nProvider } from '@/lib/i18n/context';
 
 export const metadata: Metadata = {
   title: 'منصة مسابقات جامعة الملك سعود | King Saud University Competitions Platform',
-  description: 'المنصة الرسمية لمسابقات جامعة الملك سعود المفتوحة لجميع الطلاب والمشرفين بالجامعات المشاركة (أفضل تقرير، أفضل صورة فوتوغرافية، أفضل جواز سفر).',
+  description: 'المنصة الرسمية لمسابقات لجنة عمداء شؤون الطلاب للجامعات السعودية بتنظيم جامعة الملك سعود (أفضل تقرير، أفضل صورة فوتوغرافية، أفضل جواز سفر).',
   keywords: ['جامعة الملك سعود', 'مسابقات طلابية', 'لجنة عمداء شؤون الطلاب', 'أفضل تقرير', 'أفضل صورة', 'أفضل جواز', 'KSU Competitions'],
   authors: [{ name: 'لجنة عمداء شؤون الطلاب للجامعات السعودية | جامعة الملك سعود' }],
   openGraph: {
@@ -12,11 +12,27 @@ export const metadata: Metadata = {
     description: 'أطلق فكرتك. شارك أثرَك. المنصة التنافسية الرسمية للجامعات المشاركة.',
     url: 'https://competitions.ksu.edu.sa',
     siteName: 'منصة مسابقات جامعة الملك سعود',
+    images: [
+      {
+        url: '/brand/committee-logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'شعار لجنة عمداء شؤون الطلاب للجامعات السعودية',
+      },
+    ],
     locale: 'ar_SA',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'منصة مسابقات جامعة الملك سعود',
+    description: 'أطلق فكرتك. شارك أثرَك. المنصة التنافسية الرسمية للجامعات المشاركة.',
+    images: ['/brand/committee-logo.png'],
+  },
   icons: {
     icon: '/brand/committee-logo.png',
+    shortcut: '/brand/committee-logo.png',
+    apple: '/brand/committee-logo.png',
   },
 };
 
