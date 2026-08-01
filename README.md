@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# منصة مسابقات جامعة الملك سعود | King Saud University Competitions Platform
 
-## Getting Started
+منصة ويب إنتاجية متكاملة وفاخرة لإدارة مسابقات جامعة الملك سعود للجامعات المشاركة، مصممة بأحدث تقنيات Next.js (App Router), TypeScript, Tailwind CSS, و Supabase.
 
-First, run the development server:
+---
 
+## 🌟 المزايا والمسابقات الثلاث
+
+1. **أفضل تقرير (`report`):** مخصصة للجامعات المشاركة عبر مشرف أو طالب باسم الجامعة مع رابط Google Drive مفتوح للعرض.
+2. **أفضل صورة فوتوغرافية (`photo`):** مخصصة لجميع الطلاب مع اشتراط صورة واحدة فقط داخل الرابط بدون ألبومات.
+3. **أفضل جواز سفر (`passport`):** تسليم يدوي مع تأكيد الاستلام من الإدارة عبر لوحة التحكم.
+
+- **الهوية البصرية:** تصميم فاخر يعتمد Light Mode واللون الرسمي `#008DC3` مع دعم كامل للغة العربية (RTL) والإنجليزية (LTR).
+- **الأمان والخصوصية:** الرابط المحمي لـ Admin، حماية المخرجات بـ RLS Policies بالخادم، Honeypot لمكافحة الإغراق، و dynamic rate-limiting.
+- **تصدير CSV مصفى:** تصدير نتائج البحث والفلترة بصيغة CSV آمنة تدعم اللغة العربية مع ترميز UTF-8 BOM وتجنب صيغ Excel الخبيثة.
+
+---
+
+## 🚀 التشغيل المحلي (Local Setup)
+
+### 1. تثبيت الاعتمادات (Install Dependencies)
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. إعداد متغيرات البيئة (Environment Variables)
+انسخ `.env.example` إلى `.env.local`:
+```bash
+cp .env.example .env.local
+```
+ثم عبئ البيانات من مشروع Supabase الخاص بك:
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-server-only
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. تشغيل خادم التطوير (Development Server)
+```bash
+npm run dev
+```
+افتح المتصفح على [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🗄️ إعداد Supabase وقاعدة البيانات
 
-To learn more about Next.js, take a look at the following resources:
+### 1. تنفيذ هجرة الهيكلية (Database Migration)
+في محرر SQL Dashboard داخل Supabase، انسخ وشغّل محتوى الملف:
+`supabase/migrations/20260801000000_initial_schema.sql`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. إدراج بيانات الجامعات الأولية (Seed Data)
+انسخ وشغّل محتوى الملف:
+`supabase/seed.sql`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3. إنشاء حساب المسؤول الأول (Create First Admin)
+1. من تبويب **Authentication** في Supabase Dashboard، أنشئ مستخدماً جديداً بالبريد وكلمة المرور (مثل: `admin@ksu.edu.sa`).
+2. انسخ `User ID` (UUID) الخاص بالمستخدم الجديد.
+3. افتح **SQL Editor** ونفّذ الاستعلام الآتي لمنحه صلاحية مدير النظام:
+```sql
+insert into public.profiles (id, full_name, role)
+values ('ضع-رقم-User-ID-هنا', 'مدير النظام', 'admin')
+on conflict (id) do update set role = 'admin';
+```
+4. يمكنك الآن تسجيل الدخول مباشرة من المسار المحمي: `/admin/login`.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏗️ التجميع للإنتاج للنشر (Production Build)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# بناء المشروع والتثبت من الأنواع والأنماط
+npm run build
+
+# تشغيل النسخة التجميعية محلياً
+npm run start
+```
+
+### النشر على منصات الاستضافة (Deployment)
+المشروع جاهز للنشر على أي بيئة تدعم Next.js مثل Vercel, Netlify, Railway, Docker, أو VPS.
+تأكد من ضبط متغيرات البيئة (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`) في لوحة التحكم الخاصة بمزود الاستضافة.
+
+---
+
+## 📄 الشعار والهوية الرسمية
+- الشعار الرسمي لجامعة الملك سعود موجود بالمسار الرسمي `public/brand/ksu-logo.svg`.
+- النص الإلزامي بالفوتر: `اللجنة التقنية ببرنامج الشراكة الطلابية | جامعة الملك سعود`.

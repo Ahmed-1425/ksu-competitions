@@ -1,26 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ksu-primary: #1F5A46;
+  --ksu-primary-hover: #174535;
+  --ksu-secondary: #4E6F60;
+  --ksu-gold: #C9A96A;
+  --ksu-gold-hover: #B59353;
+  --ksu-offwhite: #F8F7F4;
+  --ksu-lightgray: #D7CFC1;
+  --ksu-white: #FFFFFF;
+  --ksu-dark: #142921;
+  --ksu-text: #2D3E36;
+  --ksu-muted: #62776D;
+  --ksu-border: #E5E0D5;
+  
+  --background: #F8F7F4;
+  --foreground: #142921;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Force light mode regardless of system settings */
+html, body {
+  background-color: #F8F7F4;
+  color: #142921;
+  font-family: 'IBM Plex Sans Arabic', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color-scheme: light !important;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Luxurious Green & Gold Mesh */
+.bg-ksu-mesh {
+  background-color: #F8F7F4;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(31, 90, 70, 0.08) 0px, transparent 50%),
+    radial-gradient(at 90% 15%, rgba(201, 169, 106, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(215, 207, 193, 0.3) 0px, transparent 50%);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #E5E0D5;
+  box-shadow: 0 10px 30px -5px rgba(31, 90, 70, 0.04);
+  border-radius: 24px;
+}
+
+.glass-nav {
+  background: rgba(248, 247, 244, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #E5E0D5;
+}
+
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -8px rgba(31, 90, 70, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F7F4;
+}
+::-webkit-scrollbar-thumb {
+  background: #D7CFC1;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A96A;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #1F5A46;
+  outline-offset: 2px;
 }

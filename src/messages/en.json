@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "about": "About",
+    "competitions": "Competitions",
+    "howToParticipate": "How to Participate",
+    "universities": "Universities",
+    "faq": "FAQ",
+    "registerCta": "Register Now",
+    "adminDashboard": "Admin Dashboard"
+  },
+  "hero": {
+    "sponsorBadge": "Deanship of Student Affairs Committee | Organized by King Saud University",
+    "title": "Organized by Deanship of Student Affairs Committee & King Saud University",
+    "subtitle": "Official platform open for students & supervisors from participating Saudi universities across 3 tracks: Best Report, Best Photography, and Best Passport.",
+    "registerNow": "Register Now",
+    "exploreCompetitions": "Explore Competitions",
+    "statTracks": "3 Competition Tracks",
+    "statUniversities": "10 Participating Universities",
+    "statImpact": "Student Creativity & Impact"
+  },
+  "about": {
+    "title": "About the Platform",
+    "description": "The platform offers an organized competitive environment under the supervision of the Deanship of Student Affairs Committee and King Saud University to encourage field documentation, reports, and visual creativity."
+  },
+  "competitions": {
+    "title": "The Three Competitions",
+    "subtitle": "Choose the right track for your entry and check the guidelines",
+    "report": {
+      "title": "Best Report",
+      "badge": "For Participating Universities",
+      "tagline": "Submission on behalf of the university via open Google Drive link",
+      "description": "Comprehensive report uploaded under the participating university's name by a supervisor or representing student."
+    },
+    "photo": {
+      "title": "Best Photography",
+      "badge": "For Students",
+      "tagline": "Strictly ONE photo per submission via Google Drive link",
+      "description": "Creative photography open for all students from participating universities. Strictly one image per link."
+    },
+    "passport": {
+      "title": "Best Passport",
+      "badge": "For Students",
+      "tagline": "Physical hand delivery & admin receipt confirmation",
+      "description": "Activity passport track. Physical delivery to the supervisor with receipt confirmed via the platform."
+    },
+    "registerForThis": "Register in this Track"
+  },
+  "steps": {
+    "title": "How to Participate",
+    "subtitle": "4 simple steps to submit your entry and receive your reference code",
+    "step1Title": "Choose Track",
+    "step1Desc": "Select your competition track (Report, Photography, or Passport)",
+    "step2Title": "Enter Details",
+    "step2Desc": "Fill in your information and university accurately",
+    "step3Title": "Attach Submission",
+    "step3Desc": "Provide an open Google Drive link or affirm physical delivery",
+    "step4Title": "Receive Reference Code",
+    "step4Desc": "Save your unique reference code to track your submission",
+    "driveNoticeTitle": "Important Google Drive Permission Notice",
+    "driveNoticeDesc": "Ensure Google Drive share settings are set to 'Anyone with the link' with 'Viewer' permission."
+  },
+  "universities": {
+    "title": "Participating Universities",
+    "subtitle": "Proudly partnering with top universities across all competition tracks"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to key questions about the competitions",
+    "q1": "Who is eligible to participate?",
+    "a1": "Participation is open to students and supervisors from all participating universities according to each track's rules.",
+    "q2": "How do I make my Google Drive link publicly viewable?",
+    "a2": "Open the file/folder in Google Drive -> Click Share -> Under General access select 'Anyone with the link' -> Set role to 'Viewer' -> Copy link.",
+    "q3": "Can I submit multiple photos in the Photography track?",
+    "a3": "No, strictly one image is permitted inside the link. Uploading an album or multiple images may lead to disqualification.",
+    "q4": "What does Passport delivery mean?",
+    "a4": "Passport delivery is physical hand delivery to your supervisor with your name written on it. The supervisor confirms receipt on the platform.",
+    "q5": "How do I confirm my submission was received?",
+    "a5": "Upon form submission, you will receive a unique reference code confirming your entry has been registered."
+  },
+  "cta": {
+    "title": "Ready to showcase your submission?",
+    "subtitle": "Join the Deanship of Student Affairs Committee Competitions today and share your impact.",
+    "button": "Submit Your Entry Now"
+  },
+  "footer": {
+    "mandatoryText": "Deanship of Student Affairs Committee | King Saud University",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Participation",
+    "rights": "All Rights Reserved"
+  },
+  "form": {
+    "title": "Competition Entry Form",
+    "subtitle": "Please complete all required fields and review the track guidelines carefully",
+    "step1": "Basic Information",
+    "step2": "Track & Requirements",
+    "step3": "Review & Submit",
+    "fullName": "Full Name",
+    "phone": "Phone Number",
+    "university": "Participating University",
+    "selectUniversity": "Select university...",
+    "otherUniversity": "Other University Name",
+    "competition": "Competition Track",
+    "driveUrl": "Google Drive Link",
+    "submitterRole": "Submitter Role (Supervisor / Student)",
+    "confirmSinglePhoto": "I affirm that the link contains strictly one photograph",
+    "confirmPassportDelivered": "I affirm that I physically handed in the passport with my name on it",
+    "acceptTerms": "I accept all terms of participation and privacy policy",
+    "submitButton": "Submit Entry",
+    "submitting": "Submitting...",
+    "next": "Next",
+    "back": "Back",
+    "reportWarning": "Note: This category is for university-level submission. A student or supervisor may submit, but it is registered under the university's name.",
+    "photoWarning": "Note: Open for all students. Strictly one image per link is allowed. Albums or multiple images will be disqualified.",
+    "passportWarning": "Note: Physical hand delivery. Ensure your name is on the passport and notify your supervisor to confirm receipt."
+  },
+  "success": {
+    "title": "Your entry has been successfully submitted!",
+    "referenceLabel": "Your Submission Reference Code",
+    "copyRef": "Copy Reference Code",
+    "copied": "Copied!",
+    "nextStepsTitle": "Next Steps",
+    "reportPhotoInstructions": "Your submission is registered. The administration will review your provided link and verify requirements.",
+    "passportInstructions": "Please notify your supervisor that you have delivered the passport so they can confirm receipt on the platform.",
+    "backHome": "Back to Home"
+  }
+}

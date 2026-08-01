@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <defs>
+    <linearGradient id="ksuGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F5A46" />
+      <stop offset="100%" stop-color="#142921" />
+    </linearGradient>
+    <linearGradient id="ksuGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9A96A" />
+      <stop offset="100%" stop-color="#B59353" />
+    </linearGradient>
+  </defs>
+  <!-- Emblem background icon -->
+  <rect x="10" y="10" width="80" height="80" rx="22" fill="url(#ksuGreenGrad)" stroke="#C9A96A" stroke-width="1.5" />
+  <!-- Crescent & Palm Emblem Styling -->
+  <path d="M50 22 C34 22 22 34 22 50 C22 66 34 78 50 78 C66 78 78 66 78 50 C78 44 76 38 72 34 C76 42 74 52 66 58 C58 64 46 62 40 54 C34 46 36 34 44 28 C46 26 48 24 50 22 Z" fill="#FFFFFF" />
+  <path d="M50 30 L53 38 L62 38 L55 43 L58 51 L50 46 L42 51 L45 43 L38 38 L47 38 Z" fill="url(#ksuGoldGrad)" />
+  
+  <!-- Text: Arabic King Saud University -->
+  <text x="105" y="45" font-family="'IBM Plex Sans Arabic', 'Tajawal', sans-serif" font-weight="700" font-size="24" fill="#1F5A46">جامعة الملك سعود</text>
+  <text x="105" y="70" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#62776D" letter-spacing="1">KING SAUD UNIVERSITY</text>
+</svg>
