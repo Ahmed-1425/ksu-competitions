@@ -84,9 +84,9 @@ function AdminLoginForm() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="admin@ksu.edu.sa"
             dir="ltr"
-            className="w-full px-4 py-3.5 rounded-xl border border-[#D7CFC1] bg-[#F8F7F4]/50 text-[#142921] text-sm focus:bg-white focus:border-[#1F5A46]"
+            className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-[#D7CFC1] bg-[#F8F7F4]/50 text-[#142921] text-sm focus:bg-white focus:border-[#1F5A46] text-left"
           />
-          <Mail className="w-4 h-4 text-[#62776D] absolute top-1/2 left-3 -translate-y-1/2 pointer-events-none" />
+          <Mail className="w-4 h-4 text-[#62776D] absolute top-1/2 left-3.5 -translate-y-1/2 pointer-events-none" />
         </div>
       </div>
 
@@ -102,9 +102,9 @@ function AdminLoginForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••••••"
-            className="w-full px-4 py-3.5 rounded-xl border border-[#D7CFC1] bg-[#F8F7F4]/50 text-[#142921] text-sm focus:bg-white focus:border-[#1F5A46]"
+            className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-[#D7CFC1] bg-[#F8F7F4]/50 text-[#142921] text-sm focus:bg-white focus:border-[#1F5A46] text-left"
           />
-          <Lock className="w-4 h-4 text-[#62776D] absolute top-1/2 left-3 -translate-y-1/2 pointer-events-none" />
+          <Lock className="w-4 h-4 text-[#62776D] absolute top-1/2 left-3.5 -translate-y-1/2 pointer-events-none" />
         </div>
       </div>
 
