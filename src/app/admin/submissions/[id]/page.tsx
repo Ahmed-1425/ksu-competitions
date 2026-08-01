@@ -1,19 +1,22 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import SubmissionDetailView from '@/components/admin/SubmissionDetailView';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
-import SubmissionDetailView from '@/components/admin/SubmissionDetailView';
 import { Submission, SubmissionActivity } from '@/types/database';
 
-interface SingleSubmissionPageProps {
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
+interface PageProps {
   params: Promise<{ id: string }>;
 }
 
-async function getSubmissionData(id: string) {
+async function getSubmissionDetail(id: string) {
   try {
     const supabase = createAdminClient();
 
-    const [subRes, activityRes] = await Promise.all([
+    const [subRes, logsRes] = await Promise.all([
       supabase
         .from('submissions')
         .select('*, university:universities(*)')
@@ -33,32 +36,33 @@ async function getSubmissionData(id: string) {
 
     return {
       submission: subRes.data as Submission,
-      activityLogs: (activityRes.data || []) as SubmissionActivity[],
+      activityLogs: (logsRes.data || []) as SubmissionActivity[],
     };
-  } catch (err) {
-    console.error('Error fetching single submission data:', err);
+  } catch {
     return null;
   }
 }
 
-export default async function SingleSubmissionPage({ params }: SingleSubmissionPageProps) {
+export default async function SubmissionDetailPage({ params }: PageProps) {
   const { id } = await params;
-  const data = await getSubmissionData(id);
+  const detail = await getSubmissionDetail(id);
 
-  if (!data) {
+  if (!detail) {
     notFound();
   }
 
-  const serverSupabase = await createClient();
+  const supabaseServer = await createClient();
   const {
     data: { user },
-  } = await serverSupabase.auth.getUser();
+  } = await supabaseServer.auth.getUser();
+
+  const currentUserId = user?.id || 'admin-system';
 
   return (
     <SubmissionDetailView
-      submission={data.submission}
-      activityLogs={data.activityLogs}
-      currentUserId={user?.id || ''}
+      submission={detail.submission}
+      activityLogs={detail.activityLogs}
+      currentUserId={currentUserId}
     />
   );
 }

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { submissionFormSchema } from '@/lib/validation/submission';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { rateLimit } from '@/lib/rate-limit';
+import { revalidatePath } from 'next/cache';
 
 function generateReferenceCode(): string {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -112,6 +113,17 @@ export async function POST(req: NextRequest) {
         },
       },
     ]);
+
+    // 8. Instantly invalidate Next.js caches for admin dashboard and submissions
+    try {
+      revalidatePath('/admin', 'layout');
+      revalidatePath('/admin/submissions');
+      revalidatePath('/admin/submissions/report');
+      revalidatePath('/admin/submissions/photo');
+      revalidatePath('/admin/submissions/passport');
+    } catch (e) {
+      console.log('Revalidate notice:', e);
+    }
 
     return NextResponse.json({
       success: true,

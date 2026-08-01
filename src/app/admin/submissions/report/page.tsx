@@ -3,6 +3,9 @@ import SubmissionsTable from '@/components/admin/SubmissionsTable';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { Submission, University } from '@/types/database';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 async function getData() {
   try {
     const supabase = createAdminClient();
@@ -25,7 +28,8 @@ async function getData() {
       submissions: (submissionsRes.data || []) as Submission[],
       universities: (universitiesRes.data || []) as University[],
     };
-  } catch {
+  } catch (err) {
+    console.error('Error fetching report submissions:', err);
     return { submissions: [], universities: [] };
   }
 }
@@ -36,9 +40,9 @@ export default async function AdminReportSubmissionsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-[#0B1B2B]">مشاركات مسابقة أفضل تقرير</h1>
-        <p className="text-xs sm:text-sm text-[#5A6E7F] mt-1">
-          قائمة التقارير المستلمة باسم الجامعات المشاركة
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#142921]">مشاركات مسار: أفضل تقرير</h1>
+        <p className="text-xs sm:text-sm text-[#62776D] mt-1">
+          عاين واستعرض تقارير الأنشطة المرفوعة باسم الجامعات المشاركة
         </p>
       </div>
 
